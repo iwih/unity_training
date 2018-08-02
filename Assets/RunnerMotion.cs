@@ -22,7 +22,14 @@ public class RunnerMotion : MonoBehaviour
         else if (Input.GetKey("left"))
             RigidBody.AddForce(-1 * SideSwayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
+        RigidBody.rotation.Set(0, 0, 0, 0);
         // camera location updating
         CameraScene.transform.position = RigidBody.transform.position + CameraOffset;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // if (collision.collider.tag == "Obstacle")
+        //     this.enabled = false;
     }
 }
