@@ -807,8 +807,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RigidBody: {fileID: 640663738}
-  MotionForce: 800
-  SideSwayForce: 50
+  MotionForce: 20
+  SideSwayForce: 0.4
   CameraScene: {fileID: 1333705608}
   CameraOffset: {x: 0, y: 0.7, z: -2}
 --- !u!54 &640663738

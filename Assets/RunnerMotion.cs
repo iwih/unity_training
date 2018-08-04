@@ -11,18 +11,18 @@ public class RunnerMotion : MonoBehaviour
     public Vector3 CameraOffset;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // main motion force
-        RigidBody.AddForce(0, 0, 2000 * Time.deltaTime);
+        RigidBody.AddForce(0, 0, MotionForce, ForceMode.Acceleration);
 
         // sidesway forces by controller
         if (Input.GetKey("right"))
-            RigidBody.AddForce(SideSwayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            RigidBody.AddForce(SideSwayForce, 0, 0, ForceMode.VelocityChange);
         else if (Input.GetKey("left"))
-            RigidBody.AddForce(-1 * SideSwayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            RigidBody.AddForce(-1 * SideSwayForce, 0, 0, ForceMode.VelocityChange);
 
-        RigidBody.rotation.Set(0, 0, 0, 0);
+        // RigidBody.rotation.Set(0, 0, 0, 0);
         // camera location updating
         CameraScene.transform.position = RigidBody.transform.position + CameraOffset;
     }
